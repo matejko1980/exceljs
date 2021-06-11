@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl-PL">
+<head profile="http://purl.org/uF/hAtom/0.1/ http://purl.org/uF/2008/03/">
+	<title>Excel js</title>
+	<!-- Meta Tags -->
+	<meta name="classification" content="" />
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="" />
+	<meta name="abstract" content="">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="author" content="" />
+	<meta name="distribution" content="global" />
+	<meta name="robots" content="all" />
+	<meta name="copyright" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+    
+    <script src="node_modules/exceljs/dist/exceljs.js"></script>
+    <script>
+        var workbook = new ExcelJS.Workbook();
+        workbook.xlsx.readFile("sample.xlsx").then(function () {
+                    
+        //Get sheet by Name
+        var worksheet=workbook.getWorksheet('Arkusz1');
+                    
+        //Get Lastrow
+        var row = worksheet.lastRow
+                    
+        //Update a cell
+        row.getCell(1).value = 5;
+        
+        row.commit();
+        
+        //Save the workbook
+        return workbook.xlsx.writeFile("sample.xlsx");
+        
+        });  
+    </script>
+    
+</head>	
+<body class="home">
+
+
+</body>
+</html>
+
+
+
+
+
+
+</body>
+</html>
